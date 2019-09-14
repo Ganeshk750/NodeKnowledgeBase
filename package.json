@@ -1,0 +1,19 @@
+{
+  "name": "nodeknowledgebaseapp",
+  "version": "1.0.0",
+  "description": "Simple Knowledge base app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ganeshk750/NodeKnowledeBase.git"
+  },
+  "author": "ganeshk750",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ganeshk750/NodeKnowledeBase/issues"
+  },
+  "homepage": "https://github.com/Ganeshk750/NodeKnowledeBase#readme"
+}
