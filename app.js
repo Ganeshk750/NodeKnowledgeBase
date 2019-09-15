@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 const Article = require('./models/article');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/nodekb');
 let db = mongoose.connection;
@@ -18,6 +19,9 @@ db.on('error', (err)=>{
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   // res.send('Hello World!!');
@@ -39,10 +43,28 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get('/add/articles', (req, res) =>{
+app.get('/articles/add', (req, res) =>{
     res.render('add_articles',{
         title: 'Add Articles'
     });
+ });
+
+ // Add Submit POST Route
+ app.post('/articles/add', (req, res) =>{
+   let article = new Article();
+   article.title = req.body.title;
+   article.author = req.body.author;
+   article.body = req.body.body;
+
+   article.save((err) =>{
+     if(err){
+       console.log(err);
+       return;
+     }else{
+       res.redirect('/');
+     }
+   });
+  
  });
 
 
