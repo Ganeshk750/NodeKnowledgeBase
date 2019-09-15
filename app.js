@@ -68,5 +68,14 @@ app.get('/articles/add', (req, res) =>{
   
  });
 
+ // Get Single Article
+ app.get('/article/:id',(req,res) =>{
+  Article.findById(req.params.id,(err,article) =>{
+    res.render('article',{
+      article: article
+    });
+  });
+ });
+
 
 app.listen(3000, () => console.log('Server is running on port 3000....'));
