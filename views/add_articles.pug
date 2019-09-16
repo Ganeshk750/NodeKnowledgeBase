@@ -4,13 +4,13 @@ block content
  h1 #{title}
   form(method='POST', action='/articles/add')
     #from-group
-      label Title:
+      h4#label Title:
       input.form-control(name='title', type='text')
     #form-group
-      label Author:
+      h4#label Author:
       input.form-control(name='author', type='text')
     #form-group
-      label Body:
+      h4#label Body:
       textarea.form-control(name='body')
     input.btn.btn-primary(type='submit', value='Submit') 
   
