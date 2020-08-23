@@ -6,7 +6,7 @@ html
     link(rel='stylesheet' href='/css/style.css')
   body
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      a.navbar-brand(href='#') Knowledgebase-App
+      a.navbar-brand(href='/') Knowledgebase-App
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor01', aria-controls='navbarColor01', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarColor01.collapse.navbar-collapse
@@ -19,6 +19,12 @@ html
           li.nav-item.active
             a(href='/articles/add').nav-link Add Article
     .container
+      if successes
+        for success in successes
+           div.alert.alert-success #{ success }
+      if errors
+        for error , i in errors
+           div.alert.alert-danger #{ error }
       block content
       br
       hr
